@@ -1,0 +1,9 @@
+conda activate virtual_env
+
+cd Fake_project
+set FLASK_APP=app.py
+set FLASK_DEBUG=1
+flask run
+
+http://127.0.0.1:5000/
+

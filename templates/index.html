@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../static/css/styles.css">
+        <link rel="shortcut icon" href="../static/img/favicon.ico">
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sacramento&display=swap" rel="stylesheet">
+        <title>Hearsay-Fake news detctor</title>
+    </head>
+    <body class="index">
+        <div class="main">
+            <div class="about">
+                <a href="{{ url_for('about') }}" class="abouta" target="_blank">ABOUT</a>
+            </div>
+            <div class="description">
+                <h1 class="desh">Welcome to Hearsay<h1>
+                <p class="desp">Hearsay is a fake news detector.
+                    It identifies whether a news is fake or real by checking how much inaccurate content the news contains.</p>
+            </div>
+
+            <div class="url-text">
+                <p class="tx">You can provide URL(link) of the the news which is published either in English Language or Bangla Language .
+                   This fake news detector is now limited for only English and Bangla language news.</p>
+                <form class="frm" name="frm"  method="POST" action="{{ url_for('predict') }}" onsubmit=" return formvalidation()">
+                    <table>
+                        <tr>
+                            <td class="td1"><label for="url">Enter URL(link) of the news:</label></td>
+                            <td class="td2"><input type="url" name="url" id="url" placeholder="https://example.com" size="100"></td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td></td>
+                            <td class="td3"><input type="submit" value="DETECT"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+        function formvalidation()
+        {
+          var link=document.forms["frm"]["url"];
+          if(link.value=="")
+          {
+             window.alert("Please enter URL of a news.");
+             link.focus();
+             return false;
+          }
+          return true;
+        }
+
+    </script>
+</html>
